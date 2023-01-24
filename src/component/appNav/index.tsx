@@ -90,6 +90,9 @@ export const AppNav = () => {
 const Wrapper = styled.div`
 	background: #3a3939;
 	height: 9vh;
+    position: sticky;
+    top: 0px;
+	z-index: 100;
 `;
 const MovieTitle = styled.p`
 	font-size: ${pxToRem(26)};

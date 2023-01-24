@@ -5,7 +5,9 @@ export const MovieAppShell = () => {
 	return (
 		<div>
 			<AppNav />
-			<Outlet />
+			<div className="mt-4">
+				<Outlet />
+			</div>
 		</div>
 	);
 };
