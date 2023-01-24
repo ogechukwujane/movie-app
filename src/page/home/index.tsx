@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Container } from "react-bootstrap";
 import styled from "styled-components";
-import { MovieCard } from "../../component";
+import { MovieCard, Paginate } from "../../component";
 
 
 export const Home = () => {
+	const [pageNumber, setPageNumber] = useState(1);
 	return (
 		<Container>
 			<Grid>
@@ -13,6 +15,7 @@ export const Home = () => {
 				<MovieCard />
 				<MovieCard />
 			</Grid>
+			<Paginate noOfPages={100} pageNo={1} setPageNumber={()=>setPageNumber(10)}/>
 		</Container>
 	);
 };
