@@ -1,4 +1,4 @@
-import { AppNav } from ".."
+import { AppNav } from "../appNav"
 
 export const MovieAppShell = ({children}:{children: any}) =>{
     return(

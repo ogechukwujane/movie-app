@@ -1,4 +1,4 @@
-import { MovieAppShell } from "../../component/appNav/layout"
+import { MovieAppShell } from "../../component/layout"
 
 export const Home = () =>{
     return (

@@ -4,7 +4,11 @@ export const AppNav = () => {
 	return (
 		<div>
 			<h1>MoviesHub</h1>
-			<p></p>
+			<div>
+				<p>Trending</p>
+				<p>Movies</p>
+				<p>TV Series</p>
+			</div>
 		</div>
 	);
 };
