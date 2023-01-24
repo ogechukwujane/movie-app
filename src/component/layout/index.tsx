@@ -1,10 +1,11 @@
-import { AppNav } from "../appNav"
+import { Outlet } from "react-router-dom";
+import { AppNav } from "../appNav";
 
-export const MovieAppShell = ({children}:{children: any}) =>{
-    return(
-        <div>
-            <AppNav />
-            {children}
-        </div>
-    )
-}
+export const MovieAppShell = () => {
+	return (
+		<div>
+			<AppNav />
+			<Outlet />
+		</div>
+	);
+};

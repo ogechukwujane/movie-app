@@ -1,12 +1,11 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { Home } from "./page";
+import { RouterConfig } from "./route";
 
 function App() {
 	return (
 		<div>
-			<Home />
+			<RouterConfig />
 		</div>
 	);
 }
