@@ -4,7 +4,7 @@ import { RouterConfig } from "./route";
 
 function App() {
 	return (
-		<div>
+		<div style={{background:'black'}}>
 			<RouterConfig />
 		</div>
 	);

@@ -1,19 +1,27 @@
 import styled from "styled-components";
 import { pxToRem } from "../../utils/pxToRem";
 
-export const MovieCard = () => {
+export const MovieCard = ({
+	title,
+	image,
+	...prop
+}: {
+	title: string;
+	image: string;
+}) => {
 	return (
-		<Container>
-			<ImageWrap className="m-3"></ImageWrap>
-			<TextWrap className="m-3">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit.
-			</TextWrap>
+		<Container {...prop}>
+			<ImageWrap className="m-3">
+				<img src={image} alt="movie" />
+			</ImageWrap>
+			<TextWrap className="m-3">{title}</TextWrap>
 		</Container>
 	);
 };
 
 const Container = styled.div`
-	background: green;
+	background: #151515;
+	box-shadow: 1px 1px 6px 2px rgba(220, 146, 146, 0.3);
 	border-radius: 10px;
 	width: calc(25% - 15px);
 	@media (max-width: 1024px) {
@@ -26,21 +34,22 @@ const Container = styled.div`
 		width: calc(100%);
 	}
 	&:hover {
-		transform: scale(1.004);
+		transform: scale(1.006);
 	}
 `;
 const ImageWrap = styled.div`
-	background: red;
+	background: black;
 	height: 320px;
 	border-radius: 5px;
 	overflow: hidden;
 	img {
 		width: 100%;
+		height: 100%;
 	}
 `;
 const TextWrap = styled.div`
 	font-size: ${pxToRem(18)};
-	font-weight: 500;
+	font-weight: 600;
 	text-align: center;
 	color: white;
 `;
