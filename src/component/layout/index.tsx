@@ -5,7 +5,7 @@ export const MovieAppShell = () => {
 	return (
 		<div>
 			<AppNav />
-			<div className="mt-4">
+			<div className="pt-4 pb-3">
 				<Outlet />
 			</div>
 		</div>

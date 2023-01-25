@@ -1,18 +1,15 @@
 import { Dispatch, FC, SetStateAction, useCallback, useMemo } from "react";
 import styled from "styled-components";
 import { pxToRem } from "../../utils/pxToRem";
-import { colors } from "../colors";
 
 type IPaginate = {
 	noOfPages: number;
-	// pageNumber: number;
 	pageNo: number;
 	setPageNumber: Dispatch<SetStateAction<number>>;
 };
 export const Paginate: FC<IPaginate> = ({
 	noOfPages,
 	setPageNumber,
-	// pageNumber,
 	pageNo,
 }) => {
 	const showPreviousPage = () => {
@@ -51,7 +48,7 @@ export const Paginate: FC<IPaginate> = ({
 		[pageNo, setPageNumber]
 	);
 	return (
-		<PageSection>
+		<PageSection className="mt-5 gap-3">
 			<PageButton onClick={showPreviousPage}>Previous</PageButton>
 			{pageList.map(renderItem)}
 			<PageButton onClick={showNextPage}>Next</PageButton>
@@ -65,20 +62,28 @@ const PageSection = styled.div`
 `;
 const PageButton = styled.button`
 	border: none;
-	background-color: transparent;
+	background: #4c373799;
+	color: #facdcd;
+	padding: 8px 10px;
+	border-radius: 5px;
 	cursor: pointer;
 
 	:hover {
-		opacity: 0.6;
+		background: #a70707;
 		cursor: pointer;
 	}
 `;
 const PageItems = styled.span<{ isActive: boolean }>`
 	font-size: ${pxToRem(12)};
 	line-height: ${pxToRem(16)};
-	padding: 6px 12px;
+	padding: 10px 12px;
 	cursor: pointer;
-	color: ${({ isActive }) => (isActive ? "#F4F5F7" : "#42526E")};
+	border-radius: 5px;
+	color: ${({ isActive }) => (isActive ? "white" : "#facdcd")};
 	background-color: ${({ isActive }) =>
-		isActive ? colors.orange : "transparent"};
+		isActive ?' #a70707' : "#4c373799"};
+	:hover {
+		background: #a70707;
+		color: white;
+	}
 `;
