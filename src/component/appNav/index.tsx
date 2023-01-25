@@ -29,6 +29,11 @@ export const AppNav = () => {
 			icon: TvIcon,
 			link: "/tv-series",
 		},
+		{
+			name: "Search",
+			icon: SearchIcon,
+			link: "#",
+		},
 	];
 
 	return (
@@ -52,10 +57,6 @@ export const AppNav = () => {
 						})}
 					</div>
 				</div>
-				<SearchWrap className="d-none d-sm-flex">
-					<SearchIcon />
-					<input placeholder="search..." />
-				</SearchWrap>
 				<MenuIcon
 					className="d-flex d-lg-none"
 					onClick={() => setShowMenu(true)}
@@ -88,11 +89,12 @@ export const AppNav = () => {
 	);
 };
 const Wrapper = styled.div`
-	background: #3a3939;
+	background: #151515;
 	height: 9vh;
     position: sticky;
     top: 0px;
 	z-index: 100;
+
 `;
 const MovieTitle = styled.p`
 	font-size: ${pxToRem(26)};
@@ -111,7 +113,11 @@ const Link = styled(NavLink)`
 	color: #a39f9f;
 	font-size: ${pxToRem(18)};
 	font-weight: 500;
+
 	cursor: pointer;
+	&:hover {
+		color: #a39f9f;
+	}
 	svg {
 		stroke: #a39f9f;
 	}
@@ -121,18 +127,6 @@ const Link = styled(NavLink)`
 		svg {
 			stroke: white;
 		}
-	}
-`;
-const SearchWrap = styled.div`
-	svg {
-		stroke: white;
-	}
-	input {
-		background: transparent;
-		border: none;
-		border-bottom: 2px solid #a39f9f;
-		color: white;
-		outline: none;
 	}
 `;
 const ExitWrap = styled.div`

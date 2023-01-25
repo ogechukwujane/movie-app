@@ -80,8 +80,8 @@ const PageItems = styled.span<{ isActive: boolean }>`
 	cursor: pointer;
 	border-radius: 5px;
 	color: ${({ isActive }) => (isActive ? "white" : "#facdcd")};
-	background-color: ${({ isActive }) =>
-		isActive ?' #a70707' : "#4c373799"};
+	background-color: ${({ isActive }) => (isActive ? " #a70707" : "#4c373799")};
+	transform: background 0.6s ease-in-out;
 	:hover {
 		background: #a70707;
 		color: white;
