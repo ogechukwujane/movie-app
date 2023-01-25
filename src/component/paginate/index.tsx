@@ -1,6 +1,7 @@
 import { Dispatch, FC, SetStateAction, useCallback, useMemo } from "react";
 import styled from "styled-components";
 import { pxToRem } from "../../utils/pxToRem";
+import { colors } from "../colors";
 
 type IPaginate = {
 	noOfPages: number;
@@ -62,14 +63,14 @@ const PageSection = styled.div`
 `;
 const PageButton = styled.button`
 	border: none;
-	background: #4c373799;
+	background: ${colors.lightRed};
 	color: #facdcd;
 	padding: 8px 10px;
 	border-radius: 5px;
 	cursor: pointer;
 
 	:hover {
-		background: #a70707;
+		background:  ${colors.red};
 		cursor: pointer;
 	}
 `;
@@ -80,10 +81,10 @@ const PageItems = styled.span<{ isActive: boolean }>`
 	cursor: pointer;
 	border-radius: 5px;
 	color: ${({ isActive }) => (isActive ? "white" : "#facdcd")};
-	background-color: ${({ isActive }) =>
-		isActive ?' #a70707' : "#4c373799"};
+	background-color: ${({ isActive }) => (isActive ? colors.red : colors.lightRed)};
+	transform: background 0.6s ease-in-out;
 	:hover {
-		background: #a70707;
-		color: white;
+		background: ${colors.red};
+		color:  ${colors.white};
 	}
 `;

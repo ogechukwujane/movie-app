@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Container, Spinner } from "react-bootstrap";
 import { MovieCard, Paginate } from "../../component";
 import { useGetAllTvsQuery } from "../../store/movieApi";
-import { Grid } from "../home";
+import { Grid, LoaderWrap } from "../home";
 
 export const TVSeries = () => {
 	const [pageNumber, setPageNumber] = useState(1);
@@ -13,9 +13,9 @@ export const TVSeries = () => {
 	return (
 		<Container>
 			{isLoading ? (
-				<div className="d-flex align-items-center justify-content-center w-100 h-100">
-					<Spinner animation="border" />
-				</div>
+				<LoaderWrap className="d-flex align-items-center justify-content-center w-100">
+				<Spinner animation="border" style={{color: "white"}}/>
+			</LoaderWrap>
 			) : (
 				<>
 					<Grid>

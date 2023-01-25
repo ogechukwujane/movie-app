@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MovieAppShell } from "../component/layout";
-import { Home, Movies, TVSeries } from "../page";
+import { Home, Movies, Search, TVSeries } from "../page";
 
 export const RouterConfig = () => {
 	return (
@@ -10,6 +10,7 @@ export const RouterConfig = () => {
 					<Route path="/" element={<Home />} />
 					<Route path="movies" element={<Movies />} />
 					<Route path="tv-series" element={<TVSeries />} />
+					<Route path="search" element={<Search />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>
