@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { pxToRem } from "../../utils/pxToRem";
+import { colors } from "../colors";
 
 export const MovieCard = ({
 	title,
@@ -27,7 +28,7 @@ const fadeIn = keyframes`
 		}
 `;
 const Container = styled.div`
-	background: #151515;
+	background:  ${colors.darkGray};
 	box-shadow: 1px 1px 6px 2px rgba(220, 146, 146, 0.3);
 	border-radius: 10px;
 	width: calc(25% - 15px);
@@ -48,7 +49,7 @@ const Container = styled.div`
 	}
 `;
 const ImageWrap = styled.div`
-	background: black;
+	background:  ${colors.black};
 	height: 320px;
 	border-radius: 5px;
 	overflow: hidden;
@@ -61,5 +62,5 @@ const TextWrap = styled.div`
 	font-size: ${pxToRem(18)};
 	font-weight: 600;
 	text-align: center;
-	color: white;
+	color:  ${colors.white};
 `;

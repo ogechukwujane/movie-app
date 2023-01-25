@@ -32,7 +32,7 @@ export const AppNav = () => {
 		{
 			name: "Search",
 			icon: SearchIcon,
-			link: "#",
+			link: "/search",
 		},
 	];
 

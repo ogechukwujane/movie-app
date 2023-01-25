@@ -10,14 +10,15 @@ export const Home = () => {
 	const { data: AllTrendyMovies, isLoading } = useGetAllTrendQuery();
 
 	const moviesPerPage = 20;
-	const TotalPages = Math.ceil(AllTrendyMovies?.items.length ?? 0) / moviesPerPage;
+	const TotalPages =
+		Math.ceil(AllTrendyMovies?.items.length ?? 0) / moviesPerPage;
 
 	return (
 		<Container>
 			{isLoading ? (
-				<div className="d-flex align-items-center justify-content-center w-100 h-100">
-					<Spinner animation="border" />
-				</div>
+				<LoaderWrap className="d-flex align-items-center justify-content-center w-100">
+					<Spinner animation="border" style={{ color: "white" }} />
+				</LoaderWrap>
 			) : (
 				<>
 					<Grid>
@@ -31,16 +32,21 @@ export const Home = () => {
 							))}
 					</Grid>
 
-					<Paginate
-						noOfPages={TotalPages}
-						pageNo={pageNumber}
-						setPageNumber={setPageNumber}
-					/>
+					{AllTrendyMovies?.items?.length && (
+						<Paginate
+							noOfPages={TotalPages}
+							pageNo={pageNumber}
+							setPageNumber={setPageNumber}
+						/>
+					)}
 				</>
 			)}
 		</Container>
 	);
 };
+export const LoaderWrap = styled.div`
+	height: 100vh;
+`;
 export const Grid = styled.div`
 	width: 100%;
 	display: flex;

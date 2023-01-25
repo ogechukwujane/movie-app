@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Container, Spinner } from "react-bootstrap";
 import { CustomButton, MovieCard, Paginate } from "../../component";
 import { useGetAllMoviesQuery } from "../../store/movieApi";
-import { Grid } from "../home";
+import { Grid, LoaderWrap } from "../home";
 
 export const Movies = () => {
 	const [pageNumber, setPageNumber] = useState(1);
@@ -47,16 +47,16 @@ export const Movies = () => {
 				{movieList.map((item: string, index: number) => (
 					<>
 						{/* {showButton ? ( */}
-							<CustomButton key={index} btnText={item} delayTime={index} />
+						<CustomButton key={index} btnText={item} delayTime={index} />
 						{/* ) : null} */}
 					</>
 				))}
 			</div>
 
 			{isLoading ? (
-				<div className="d-flex align-items-center justify-content-center w-100 h-100">
-					<Spinner animation="border" />
-				</div>
+				<LoaderWrap className="d-flex align-items-center justify-content-center w-100">
+					<Spinner animation="border" style={{ color: "white" }} />
+				</LoaderWrap>
 			) : (
 				<>
 					<Grid>

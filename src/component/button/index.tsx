@@ -16,7 +16,7 @@ const Button = styled.button<{ delayTime: number }>`
 	font-size: ${pxToRem(16)};
 	font-weight: 500;
 	color: ${colors.white};
-	background: #2a2828;
+	background: ${colors.gray};
 	padding: 5px 10px;
 	border-radius: 5px;
 	box-shadow: 1px 1px 2px 1px #4e4646;
