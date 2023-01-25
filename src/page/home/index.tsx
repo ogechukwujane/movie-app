@@ -41,7 +41,7 @@ export const Home = () => {
 		</Container>
 	);
 };
-const Grid = styled.div`
+export const Grid = styled.div`
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
