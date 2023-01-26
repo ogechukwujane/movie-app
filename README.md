@@ -23,7 +23,11 @@ This project was built using React, Typescript, React-bootstrap and Styled-compo
 This project has four pages which are the Trending, Movies, Tvs and Search pages. This application is supper responsive on any plateform
 
 ### `Data Manipulations`
+
+**Note: The API details has maximum number of usage. If no data to display, know that it have excideed the number of fetch per day. Try to view another day. I display the error message using an alert(please, don't mind)**
+
 Data used was gotten from the (https://imdb-api.com/api). The Swagger Documentation which can be accessed via (https://imdb-api.com/swagger/index.html) was used and the API's were consumed using Redux-toolkit/RTK Query.
+
 
 ### `Deployment`
 This project was deployed on Render and can be acccessed via [MoviesHub App](https://moviehub-lgjh.onrender.com/).
