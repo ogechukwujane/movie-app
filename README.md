@@ -1,6 +1,6 @@
 # MoviesHub App
 
-The MoviesHub app enables one to quickly browse through trending and available movies. This application is available on [MoviesHub App](https://github.com/facebook/create-react-app).
+The MoviesHub app enables one to quickly browse through trending and available movies. This application is available on [MoviesHub App](https://moviehub-lgjh.onrender.com/).
 
 ## Getting Started
 
@@ -26,5 +26,5 @@ This project has four pages which are the Trending, Movies, Tvs and Search pages
 Data used was gotten from the (https://imdb-api.com/api). The Swagger Documentation which can be accessed via (https://imdb-api.com/swagger/index.html) was used and the API's were consumed using Redux-toolkit/RTK Query.
 
 ### `Deployment`
-This project was deployed on Render and can be acccessed via [MoviesHub App](https://facebook.github.io/create-react-app/docs/getting-started).
+This project was deployed on Render and can be acccessed via [MoviesHub App](https://moviehub-lgjh.onrender.com/).
 

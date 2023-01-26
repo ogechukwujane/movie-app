@@ -9,6 +9,7 @@ import { ReactComponent as ExitIcon } from "../../images/exit_icon.svg";
 import { Container } from "react-bootstrap";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { colors } from "../colors";
 
 export const AppNav = () => {
 	const [showMenu, setShowMenu] = useState(false);
@@ -63,7 +64,10 @@ export const AppNav = () => {
 				/>
 				{showMenu && (
 					<>
-						<ListContainer className="d-flex d-lg-none flex-column gap-4 p-4">
+						<ListContainer
+							showMenu={showMenu}
+							className="d-flex d-lg-none flex-column gap-4 p-4"
+						>
 							<ExitWrap onClick={() => setShowMenu(false)}>
 								<ExitIcon />
 							</ExitWrap>
@@ -89,43 +93,64 @@ export const AppNav = () => {
 	);
 };
 const Wrapper = styled.div`
-	background: #151515;
+	background:${colors.darkGray};
+	box-shadow: 0px 0px 0px 2px rgba(61, 60, 60, 0.75);
 	height: 9vh;
-    position: sticky;
-    top: 0px;
+	position: sticky;
+	top: 0px;
 	z-index: 100;
-
 `;
 const MovieTitle = styled.p`
 	font-size: ${pxToRem(26)};
 	font-weight: 700;
-	color: white;
+	color: ${colors.white};
 `;
-const ListContainer = styled.div`
-	background: black;
+const ListContainer = styled.div<{ showMenu: boolean }>`
+	background: ${colors.black};
+	box-shadow: 0px 0px 2px 2px rgba(125, 77, 77, 0.75);
 	position: absolute;
 	top: 0px;
 	right: 0px;
 	left: 0px;
+	animation: fadeInOut 0.7s ease-in-out;
+	animation-name: ${({ showMenu }) => (showMenu ? "fadeIn" : "fadeOut")};
+	animation-duration: 0.3s;
+	animation-timing-function: ease-in-out;
+	@keyframes fadeIn {
+		from {
+			top: -100px;
+		}
+		to {
+			top: 0px;
+		}
+	}
+	@keyframes fadeOut {
+		from {
+			top: 0px;
+		}
+		to {
+			top: -2000px;
+		}
+	}
 `;
 const Link = styled(NavLink)`
 	text-decoration: none;
-	color: #a39f9f;
+	color: ${colors.ash};
 	font-size: ${pxToRem(18)};
 	font-weight: 500;
 
 	cursor: pointer;
 	&:hover {
-		color: #a39f9f;
+		color: ${colors.ash};
 	}
 	svg {
-		stroke: #a39f9f;
+		stroke:  ${colors.ash};
 	}
 	&.active {
 		font-weight: 600;
-		color: white;
+		color: ${colors.white};
 		svg {
-			stroke: white;
+			stroke: ${colors.white};
 		}
 	}
 `;
@@ -133,8 +158,8 @@ const ExitWrap = styled.div`
 	position: absolute;
 	right: 32px;
 	svg {
-		fill: white;
-		border: 2px solid white;
+		fill: ${colors.white};
+		border: 2px solid ${colors.white};
 		border-radius: 5px;
 	}
 `;

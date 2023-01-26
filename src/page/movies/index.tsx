@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Spinner } from "react-bootstrap";
 import { CustomButton, MovieCard, Paginate } from "../../component";
 import { useGetAllMoviesQuery } from "../../store/movieApi";
@@ -6,8 +6,8 @@ import { Grid, LoaderWrap } from "../home";
 
 export const Movies = () => {
 	const [pageNumber, setPageNumber] = useState(1);
-	const [showButton, setShowButton] = useState(0);
-	const { data: AllMovies, isLoading } = useGetAllMoviesQuery();
+	const [active, setActive] = useState(0);
+	const { data: AllMovies, isLoading} = useGetAllMoviesQuery();
 
 	const moviesPerPage = 20;
 	const TotalPages = Math.ceil(AllMovies?.items.length ?? 0) / moviesPerPage;
@@ -41,15 +41,32 @@ export const Movies = () => {
 		"Game-Show",
 		"Reality-TV",
 	];
+	useEffect(() => {
+		if(active < movieList.length){
+			let interval = setTimeout(() => {
+				setActive((prev) => prev + 1);
+			},  0.05 * 1000);
+			return () => clearTimeout(interval)
+		}
+	}, [active, movieList.length]);
+
+	useEffect(()=>{
+		if(AllMovies?.errorMessage){
+			alert(AllMovies?.errorMessage)
+		}
+	},[AllMovies?.errorMessage])
+	
+
 	return (
 		<Container>
 			<div className="d-flex flex-wrap gap-3">
 				{movieList.map((item: string, index: number) => (
-					<>
-						{/* {showButton ? ( */}
-						<CustomButton key={index} btnText={item} delayTime={index} />
-						{/* ) : null} */}
-					</>
+					<CustomButton
+						key={index}
+						btnText={item}
+						delayTime={index}
+						isActive={active >= index}
+					/>
 				))}
 			</div>
 
@@ -70,11 +87,13 @@ export const Movies = () => {
 							))}
 					</Grid>
 
-					<Paginate
-						noOfPages={TotalPages}
-						pageNo={pageNumber}
-						setPageNumber={setPageNumber}
-					/>
+					{!!AllMovies?.items?.length && (
+						<Paginate
+							noOfPages={TotalPages}
+							pageNo={pageNumber}
+							setPageNumber={setPageNumber}
+						/>
+					)}
 				</>
 			)}
 		</Container>

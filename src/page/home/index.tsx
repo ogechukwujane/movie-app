@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 import styled from "styled-components";
@@ -12,6 +12,12 @@ export const Home = () => {
 	const moviesPerPage = 20;
 	const TotalPages =
 		Math.ceil(AllTrendyMovies?.items.length ?? 0) / moviesPerPage;
+
+	useEffect(() => {
+		if (AllTrendyMovies?.errorMessage) {
+			alert(AllTrendyMovies?.errorMessage);
+		}
+	}, [AllTrendyMovies?.errorMessage]);
 
 	return (
 		<Container>
@@ -32,7 +38,7 @@ export const Home = () => {
 							))}
 					</Grid>
 
-					{AllTrendyMovies?.items?.length && (
+					{!!AllTrendyMovies?.items?.length && (
 						<Paginate
 							noOfPages={TotalPages}
 							pageNo={pageNumber}
@@ -45,7 +51,8 @@ export const Home = () => {
 	);
 };
 export const LoaderWrap = styled.div`
-	height: 100vh;
+	/* height: 100vh; */
+	margin-top: 100px;
 `;
 export const Grid = styled.div`
 	width: 100%;
