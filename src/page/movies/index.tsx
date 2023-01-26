@@ -24,22 +24,9 @@ export const Movies = () => {
 		"Drama",
 		"War",
 		"Crime",
-		"Mystery",
-		"Sci-Fi",
 		"Fantasy",
-		"Biography",
-		"History",
-		"Sport",
 		"Music",
-		"Western",
-		"Musical",
-		"Documentary",
-		"Short",
-		"Film-Noir",
-		"Adult",
-		"Talk-Show",
-		"Game-Show",
-		"Reality-TV",
+		
 	];
 	useEffect(() => {
 		if(active < movieList.length){
