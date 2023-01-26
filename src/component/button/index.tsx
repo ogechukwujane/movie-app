@@ -5,14 +5,16 @@ import { colors } from "../colors";
 export const CustomButton = ({
 	btnText,
 	delayTime,
+	isActive
 }: {
 	btnText: string;
 	delayTime: number;
+	isActive: boolean;
 }) => {
-	return <Button delayTime={delayTime}>{btnText}</Button>;
+	return <Button isActive={isActive} delayTime={delayTime}>{btnText}</Button>;
 };
 
-const Button = styled.button<{ delayTime: number }>`
+const Button = styled.button<{ delayTime: number; isActive:boolean }>`
 	font-size: ${pxToRem(16)};
 	font-weight: 500;
 	color: ${colors.white};
@@ -21,18 +23,17 @@ const Button = styled.button<{ delayTime: number }>`
 	border-radius: 5px;
 	box-shadow: 1px 1px 2px 1px #4e4646;
 	border: none;
-	opacity: 0px;
 	position: relative;
-	animation: slideInFromBottom 0.5s ease-in-out;
-	animation-delay: calc(${(props) => props.delayTime}s / 10);
+	display: ${(props) => (props.isActive ? 'block' : 'none')};
+	animation: slideInFromBottom 0.3s ease-in-out;
 	@keyframes slideInFromBottom {
-		from {
-			bottom: -10px;
-			opacity: 0;
+		0% {
+			transform: translateY(50px);
+			opacity:0;
 		}
-		to {
-			bottom: 0px;
-			opacity: 1;
+		100% {
+			transform: translateY(0px);
+			opacity:1;
 		}
 	}
 `;

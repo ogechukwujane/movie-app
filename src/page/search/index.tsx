@@ -20,7 +20,9 @@ export const Search = () => {
 
 	const handleSearch = (e: any) => {
 		setholdData(e.target.value);
+		
 	};
+
 	return (
 		<Container>
 			<SearchWrap className="d-flex gap-2">
@@ -62,7 +64,7 @@ export const Search = () => {
 									))}
 					</Grid>
 
-					{AllSearchMovies?.results?.length ||
+					{!!AllSearchMovies?.results?.length ||
 					AllListSearchMovies?.results?.length ? (
 						<Paginate
 							noOfPages={TotalPages || TotalListPages}
